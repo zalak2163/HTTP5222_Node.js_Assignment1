@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const path = require("path");
 const bodyParser = require("body-parser");
+const path = require("path");
 const serverless = require("serverless-http");
 
 dotenv.config();
@@ -22,8 +22,8 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
 
 // Routes
-app.use("/admin", require("../routes/admin")); // Check that the file path is correct
-app.use("/api", require("../routes/api")); // Ensure these routes exist
+app.use("/admin", require("./routes/admin")); // Ensure this path is correct
+app.use("/api", require("./routes/api")); // Ensure this path is correct
 
-// Export the app for Netlify to handle as a serverless function
+// Export app as a serverless function
 module.exports.handler = serverless(app);
