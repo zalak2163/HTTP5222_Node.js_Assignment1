@@ -3,13 +3,12 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
 const bodyParser = require("body-parser");
-const serverless = require("serverless-http");
 
 dotenv.config();
 
 const app = express();
 
-// MongoDB Connection
+// Connect to MongoDB
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB connected"))
@@ -22,8 +21,11 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
 
 // Routes
-app.use("/admin", require("../routes/admin"));
-app.use("/api", require("../routes/api"));
+app.use("/admin", require("./routes/admin"));
+app.use("/api", require("./routes/api"));
 
-// Export the function to be deployed by Netlify
-module.exports.handler = serverless(app);
+// Start server
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
