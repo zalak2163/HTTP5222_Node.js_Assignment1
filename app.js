@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
 const bodyParser = require("body-parser");
+const serverless = require("serverless-http");
 
 dotenv.config();
 
@@ -21,11 +22,8 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
 
 // Routes
-app.use("/admin", require("./routes/admin"));
-app.use("/api", require("./routes/api"));
+app.use("/admin", require("../routes/admin")); // Make sure routes are correctly referenced
+app.use("/api", require("../routes/api")); // Make sure routes are correctly referenced
 
-// Start server
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Export the Express app as a serverless function
+module.exports.handler = serverless(app);

@@ -1,11 +1,11 @@
 [build]
-  command = "npm run build"
-  publish = "public"  # Folder where your static files are (images, CSS)
+  command = "npm run build"  # Change to "npm install" if you don't have a separate build process
+  publish = "public"  # Folder to store static files, like CSS, JS, and images
 
 [functions]
-  directory = "netlify-functions"  # Folder containing your Netlify Functions (serverless functions)
+  directory = "netlify-functions"  # This is where your serverless functions are located
 
 [[redirects]]
   from = "/admin"
-  to = "/admin"  # Handled by serverless function for dynamic rendering
-  status = 200
+  to = "/admin"  # Handles the dynamic routing with the function
+  status = 200  # Status 200 will allow the function to serve this route dynamically
