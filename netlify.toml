@@ -1,8 +1,11 @@
 [build]
   command = "npm run build"
-  publish = "public"
+  publish = "public"  # Folder where your static files are (images, CSS)
+
+[functions]
+  directory = "netlify-functions"  # Folder containing your Netlify Functions (serverless functions)
 
 [[redirects]]
   from = "/admin"
-  to = "/admin/index.html"
+  to = "/admin"  # Handled by serverless function for dynamic rendering
   status = 200
