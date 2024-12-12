@@ -1,6 +1,8 @@
 [build]
-  command = "npm install"  # or "npm run build" if you have a build process
-  publish = "public"  # Static files location (adjust as needed)
+  functions = "netlify-functions"  # Make sure this points to your functions folder
+  command = "npm run build"  # Or any custom build command
 
-[functions]
-  directory = "netlify-functions"  # Ensure this folder exists for serverless functions
+[[redirects]]
+  from = "/admin"
+  to = "/.netlify/functions/app/admin"  # Route to your function handling /admin
+  status = 200
