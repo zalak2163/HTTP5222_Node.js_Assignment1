@@ -1,0 +1,21 @@
+{
+  "name": "assignment1",
+  "version": "1.0.0",
+  "description": "Assignment1",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./app.js"
+  },
+  "author": "zalak patel",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.7.2",
+    "pug": "^3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

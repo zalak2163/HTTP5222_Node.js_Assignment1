@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  .container
+    h1 Projects
+    ul
+      each project in projects
+        li
+          h3= project.title
+          p= project.description
+          a(href=project.link) View Project
+    a(href="/admin/add-project") Add New Project

@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  .container
+    h1 Add Project
+    form(action="/admin/add-project" method="POST")
+      input(type="text" name="title" placeholder="Project Title" required)
+      textarea(name="description" placeholder="Project Description" required) 
+      input(type="text" name="link" placeholder="Project Link")
+      button(type="submit") Add Project
