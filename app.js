@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 
-// MongoDB connection (ensure your MongoDB URI is set correctly)
+// MongoDB connection (make sure your MongoDB URI is set correctly in the .env file)
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB connected"))
@@ -22,8 +22,8 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
 
 // Routes
-app.use("/admin", require("../routes/admin")); // Make sure routes are correct
-app.use("/api", require("../routes/api")); // Ensure routes are valid
+app.use("/admin", require("../routes/admin")); // Check that the file path is correct
+app.use("/api", require("../routes/api")); // Ensure these routes exist
 
-// Export the function for Netlify to handle the app
+// Export the app for Netlify to handle as a serverless function
 module.exports.handler = serverless(app);

@@ -1,6 +1,11 @@
 [build]
-  command = "npm run build"  # If you need a build process, otherwise just npm install
-  publish = "public"  # If you have a static folder for assets
+  command = "npm install"  # Ensure dependencies are installed
+  publish = "public"  # If you have a "public" folder for static files, else adjust
 
 [functions]
-  directory = "netlify-functions"  # Ensure serverless functions are in this folder
+  directory = "netlify-functions"  # Make sure this is where the serverless functions are located
+
+[[redirects]]
+  from = "/admin"
+  to = "/.netlify/functions/app/admin"
+  status = 200
