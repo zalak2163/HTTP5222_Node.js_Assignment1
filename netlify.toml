@@ -1,11 +1,16 @@
 [build]
-  command = "npm install"
-  publish = "public"  # Update this if your static files are in another folder (e.g., "build")
+  command = "npm install"  # or npm run build if you have a build step
+  publish = "public"       # Directory for static files (adjust this if needed)
 
 [functions]
-  directory = "netlify-functions"  # Your serverless function folder
+  directory = "netlify-functions"  # This is where the serverless functions are stored
 
 [[redirects]]
   from = "/admin/*"
-  to = "/.netlify/functions/app/admin"  # Points to the serverless function for the /admin route
+  to = "/.netlify/functions/app/admin"  # Route all /admin paths to the serverless function
+  status = 200
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/app/api"    # Route all /api paths to the serverless function
   status = 200
