@@ -4,7 +4,8 @@
   "description": "Assignment1",
   "main": "app.js",
   "scripts": {
-    "dev": "npx nodemon ./app.js"
+    "dev": "npx nodemon ./app.js",
+    "start": "node ./app.js"  
   },
   "author": "zalak patel",
   "license": "ISC",
