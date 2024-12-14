@@ -1,18 +1,18 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
 const path = require("path");
+const bodyParser = require("body-parser");
+
+dotenv.config();
 
 const app = express();
 
-// MongoDB connection using the URI from .env
+// Connect to MongoDB
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.log("Error connecting to MongoDB:", err));
+  .catch((err) => console.log(err));
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
