@@ -1,98 +1,218 @@
-
-* {
-    box-sizing: border-box;
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2C3E50; /* Deep navy blue for a sleek, professional look */
+    color: #ECF0F1; /* Light soft white for body text */
     margin: 0;
     padding: 0;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #89476e, #4297a0); /* Gradient from Teal Green to a contrasting blue */
-    color: #f4eae6; /* Ivory text for readability */
-    line-height: 1.6;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle inner shadow */
-}
-
-.container {
-    width: 90%;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 30px;
-    background: #021141; /* Misty Blue for the form */
+    box-sizing: border-box;
+  }
+  
+  /* Container */
+  .container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 3rem;
+    background-color: #34495E; /* Darker gray-blue for card backgrounds */
     border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-}
-
-h1 {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Typography */
+  h1, h2, h3 {
+    font-weight: bold;
     text-align: center;
-    margin-bottom: 20px;
-    color: #f4eae6; /* Ivory for the header */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    font-size: 2.5rem; /* Larger font size */
-}
-
-form {
+    color: #16A085; /* Emerald green for headings */
+    text-transform: uppercase;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Form Styles */
+  form {
     display: flex;
     flex-direction: column;
-}
-
-input[type="text"],
-input[type="number"],
-input[type="date"],
-textarea,
-select {
-    padding: 14px;
-    margin: 10px 0;
-    border: 2px solid #e57f84; /* Coral border */
-    border-radius: 6px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    background: rgba(255, 255, 255, 0.9); /* Light background for inputs */
-    color: #181717; /* Dark text */
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-input[type="date"]:focus,
-textarea:focus,
-select:focus {
-    border-color: #b48d1b; /* Coral on focus */
-    box-shadow: 0 0 5px rgba(227, 127, 132, 0.5);
-}
-
-button {
-    padding: 14px;
-    background-color: #f4eae6; /* Ivory for buttons */
-    color: #333; /* Dark text */
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
     font-size: 1.1rem;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-button:hover {
-    background-color: #f1636a; /* Coral on hover */
+    color: #BDC3C7; /* Lighter gray for labels */
+  }
+  
+  input[type="text"],
+  input[type="url"],
+  textarea {
+    padding: 1.2rem;
+    font-size: 1rem;
+    border: 2px solid #7F8C8D; /* Dark gray border for input fields */
+    border-radius: 8px;
+    background-color: #34495E; /* Dark background for input fields */
+    color: #ECF0F1; /* Light text color for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="url"]:focus,
+  textarea:focus {
+    border-color: #16A085; /* Emerald green on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(22, 160, 133, 0.3);
+  }
+  
+  /* Buttons */
+  button {
+    padding: 1rem;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #16A085, #2980B9); /* Emerald green to blue gradient */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #2980B9, #16A085); /* Reversed gradient for hover */
     transform: scale(1.05);
-}
-
-/* Responsive design */
-@media (max-width: 600px) {
+  }
+  
+  /* Links */
+  a {
+    text-decoration: none;
+    color: #2980B9; /* Soft blue for links */
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #16A085; /* Emerald green on hover for links */
+  }
+  
+  /* Card Styles */
+  .project-list,
+  .skill-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .project-card,
+  .skill-card {
+    background-color: #1C2833; /* Darker shade for cards */
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-card:hover,
+  .skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+  
+  .project-title,
+  .skill-name {
+    font-size: 1.5rem;
+    color: #16A085; /* Emerald green for titles */
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .project-description,
+  .skill-description {
+    color: #BDC3C7; /* Light gray for descriptions */
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .project-details p,
+  .skill-level {
+    color: #7F8C8D; /* Slightly darker gray for details */
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .skill-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 1rem;
+  }
+  
+  /* Hover Effects */
+  .project-card:hover,
+  .skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Animation for fade-in */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
     .container {
-        width: 95%;
-        padding: 20px;
+      width: 90%;
+      padding: 1.5rem;
     }
-
+  
     h1 {
-        font-size: 2rem; 
+      font-size: 2.2rem;
     }
-
+  
     button {
-        font-size: 1rem;
+      padding: 0.9rem;
     }
-}
+  
+    .form-group input,
+    .form-group textarea {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 0.8rem;
+    }
+  
+    .form-group input,
+    .form-group textarea {
+      font-size: 1rem;
+    }
+  }
+  

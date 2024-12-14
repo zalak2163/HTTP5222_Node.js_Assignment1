@@ -3,7 +3,21 @@ extends ../layout
 block content
   .container
     h1 Add Skill
-    form(action="/admin/add-skill" method="POST")
-      input(type="text" name="name" placeholder="Skill Name" required)
-      input(type="text" name="level" placeholder="Skill Level (e.g., Beginner, Intermediate, Expert)" required)
+    form(action="/admin/add-skill", method="POST", enctype="multipart/form-data")
+      .form-group
+        label(for="name") Name
+        input(type="text", id="name", name="name", placeholder="Enter skill name", required)
+
+      .form-group
+        label(for="level") Level
+        input(type="text", id="level", name="level", placeholder="Enter skill level", required)
+
+      .form-group
+        label(for="description") Description
+        textarea(id="description", name="description", placeholder="Enter a description for this skill", required)
+
+      .form-group
+        label(for="image") Image (Optional)
+        input(type="file", id="image", name="image")
+
       button(type="submit") Add Skill

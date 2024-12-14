@@ -3,8 +3,14 @@ extends ../layout
 block content
   .container
     h1 Skills
-    ul
+    ul.skill-list
       each skill in skills
-        li
-          | #{skill.name} - Level: #{skill.level}
-    a(href="/admin/add-skill") Add New Skill
+        li.skill-card
+          .skill-name
+            h3= skill.name
+          .skill-level
+            p Level: #{skill.level}
+          .skill-description
+            p= skill.description
+          if skill.image
+            img(src=skill.image, alt=skill.name + " image", class="skill-image")

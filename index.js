@@ -18,7 +18,7 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
-app.use(express.static("public"));
+app.use(express.static("public")); // Static files
 
 // Root route to confirm server is running
 app.get("/", (req, res) => {
@@ -26,8 +26,8 @@ app.get("/", (req, res) => {
 });
 
 // Routes
-app.use("/admin", require("./routes/admin"));
-app.use("/api", require("./routes/api"));
+app.use("/admin", require("./routes/admin")); // Admin routes for adding projects/skills
+app.use("/api", require("./routes/api")); // API routes (if needed)
 
 // Handle 404 errors
 app.use((req, res) => {
@@ -35,7 +35,7 @@ app.use((req, res) => {
 });
 
 // Start server on dynamic port or 8080
-const PORT = process.env.PORT || 8080; // Set default to 8080 for Render
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

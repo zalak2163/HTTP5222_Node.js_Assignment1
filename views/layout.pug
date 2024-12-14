@@ -1,8 +1,12 @@
 doctype html
 html
   head
-    title Portfolio Admin
-    link(rel='stylesheet', href='/css/style.css')
-    script(src='/js/scripts.js')
+    title Project Management
+    link(rel="stylesheet" href="/css/style.css")
   body
-    block content
+    header
+      h1 Project Management Dashboard
+    main
+      block content  // This is where child templates will inject their content
+    footer
+      p © 2024 Project Management
