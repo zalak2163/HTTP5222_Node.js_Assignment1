@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
 const bodyParser = require("body-parser");
+const cors = require("cors"); // Import cors
 
 dotenv.config();
 
@@ -15,6 +16,13 @@ mongoose
   .catch((err) => console.log(err));
 
 // Middleware
+app.use(cors()); // Enable CORS for all routes and origins
+
+// If you want to restrict to your React app's URL only, use this instead:
+// app.use(cors({
+//   origin: 'http://localhost:5173'  // Allow only React app on localhost
+// }));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
